@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="description" content="Lan Zeng explores interactive narrative, human-AI interaction and participation in authored worlds.">
+  <meta name="author" content="Lan Zeng">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Lan Zeng">
+  <meta property="og:title" content="Lan Zeng | Interactive narrative &amp; human-AI interaction">
+  <meta property="og:description" content="Research, projects and writing on experiencing authored worlds through interactive AI systems.">
+  <title>Lan Zeng | A world of possibilities</title>
+  <link rel="icon" href="assets/lan-zeng-portrait.webp" type="image/webp">
+  <link rel="preload" href="assets/source-sans.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="atlas.css">
+  <link rel="stylesheet" href="ambient.css">
+  <link rel="stylesheet" href="content.css">
+  <script src="puzzle-model.js" defer></script>
+  <script src="atlas.js" defer></script>
+  <script src="ambient.js" defer></script>
+  <script src="content.js" defer></script>
+</head>
+<body class="atlas-version content-version">
+  <a class="skip" href="#research">Skip to research</a>
+  <header class="header">
+    <a class="wordmark" href="#home">Lan Zeng<span lang="zh-CN">曾岚</span></a>
+    <nav aria-label="Main navigation">
+      <button type="button" class="index-shortcut">World index</button>
+      <a href="#research">Research</a>
+      <a class="cv-download" href="assets/Lan_Zeng_Public_CV.pdf" download aria-label="Download CV (PDF)">CV<span class="cv-format"> (PDF)</span></a>
+      <a href="#contact">Contact <span aria-hidden="true">↗</span></a>
+    </nav>
+  </header>
+  <main>
+    <section class="atlas-opening" id="home" aria-label="Meet Lan, then explore an interactive world">
+      <div class="atlas-pinned">
+        <div class="atlas-copy profile-copy">
+          <h1 id="profile-name">Lan Zeng <span lang="zh-CN">曾岚</span></h1>
+          <p class="profile-interests">Interactive narrative &amp; human-AI interaction</p>
+          <p class="profile-affiliation"><strong>Research Assistant</strong><span>AIoT Laboratory</span><span>The Chinese University of Hong Kong</span></p>
+          <a class="research-link" href="#research">Explore my research <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="atlas-copy copy-fragments" id="worlds" aria-hidden="true" inert>
+          <p class="eyebrow">Interactive narrative &amp; HCI</p>
+          <h2>Worlds<br><span>within reach.</span></h2>
+          <p class="atlas-intro">I build interactive systems that help people experience authored worlds through their own choices.</p>
+          <a class="research-link" href="#research">Explore my research <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="atlas-copy copy-gather" aria-hidden="true" inert>
+          <p class="eyebrow">Connecting the pieces</p>
+          <h2>Many pieces.<br><span>One world.</span></h2>
+          <p class="atlas-intro">Stories, choices and possibilities come together to form a world we can take part in.</p>
+        </div>
+        <div class="atlas-copy copy-world" aria-hidden="true" inert>
+          <h2>Explore<br><span>my work.</span></h2>
+          <p class="atlas-intro index-intro">Turn the globe to explore, or choose a destination here.</p>
+          <nav class="world-links" aria-label="World content index">
+            <a href="#research" data-region="Asia"><span>Research</span></a>
+            <a href="#projects" data-region="North America"><span>Projects</span></a>
+            <a href="#publications" data-region="Europe"><span>Papers</span></a>
+            <a href="#background" data-region="South America"><span>Experience</span></a>
+            <a href="#about" data-region="Africa"><span>About me</span></a>
+            <a href="#contact" data-region="Oceania"><span>Contact</span></a>
+          </nav>
+        </div>
+        <div class="atlas-art" data-phase="fragments">
+          <canvas id="fragments" aria-hidden="true"></canvas>
+          <canvas id="globe" aria-hidden="true"></canvas>
+          <div class="portrait-hinge">
+            <div class="profile-portrait">
+              <img src="assets/lan-zeng-portrait.webp" width="1200" height="1200" alt="Portrait of Lan Zeng" fetchpriority="high" data-unavailable-message="Portrait of Lan Zeng unavailable.">
+            </div>
+          </div>
+          <div class="globe-input" tabindex="0" role="group" aria-label="Interactive world. Drag to rotate freely. Use arrow keys to rotate, Home to reset. Use the adjacent links to navigate." aria-describedby="art-help" inert>
+            <div class="globe-labels" aria-hidden="true"></div>
+          </div>
+          <div class="atlas-fallback" hidden>The globe could not load. All sections remain available through the content index.</div>
+          <div class="destination" aria-hidden="true"><span class="destination-name"></span><span class="destination-detail"></span></div>
+        </div>
+        <div class="atlas-controls">
+          <div class="phase-buttons" role="group" aria-label="Artwork view">
+            <button type="button" data-view="-1" aria-pressed="true">Profile</button>
+            <button type="button" data-view="0" aria-pressed="false">Fragments</button>
+            <button type="button" data-view="0.43" aria-pressed="false">Gather</button>
+            <button type="button" data-view="0.88" aria-pressed="false">World index</button>
+          </div>
+          <p id="art-help">Scroll to open a world of possibilities.</p>
+          <div class="atlas-actions">
+            <button type="button" class="touch-rotate" aria-pressed="false" hidden>Enable rotation</button>
+            <button type="button" class="ambient-toggle" aria-pressed="true" aria-controls="ambient-shapes" title="Compare with or without the playful background">Background on</button>
+            <button type="button" class="reset-view">Reset view</button>
+            <button type="button" class="reduce-motion" aria-pressed="false">Reduce motion</button>
+          </div>
+        </div>
+        <div class="ambient-layer" aria-label="Playful background"></div>
+        <p id="ambient-help" class="ambient-help">Brush past the small shapes to nudge them, or drag and release. With keyboard focus, use arrow keys to move a shape and Enter or Space to pause it. Reduce motion stops automatic movement.</p>
+        <span class="atlas-progress" aria-hidden="true"></span>
+      </div>
+    </section>
+    <section class="research section" id="research" aria-labelledby="research-title">
+      <div class="section-heading"><h2 id="research-title">From stories<br>to lived experiences.</h2><p>I study how AI-mediated interaction can help people experience and understand literary worlds. My work combines system building and interaction design to explore how readers can make their own choices while remaining engaged with the world an author created.</p></div>
+      <div class="research-questions">
+        <article><h3>Bringing a world into interaction</h3><p>How can a system represent a novel’s settings, characters, and events so that readers can experience more than a sequence of generated passages?</p></article>
+        <article><h3>Responding to a reader’s choices</h3><p>How should an interactive world respond to a reader’s intended actions while respecting its own rules and ongoing development?</p></article>
+      </div>
+    </section>
+    <section class="projects section" id="projects" aria-labelledby="projects-title">
+      <h2 class="content-heading" id="projects-title">Selected projects</h2>
+      <article class="featured" aria-labelledby="worlds-title">
+        <button class="project-visual" type="button" data-dialog="worlds" aria-label="Open project: novel-derived interactive worlds"><img src="assets/dchmas.png" width="1600" height="1000" alt="The DC-HMAS prototype interface showing a saved character interaction." loading="lazy"><span class="visual-action" aria-hidden="true">Open project ↗</span></button>
+        <div class="project-copy"><p class="project-kind">Independent research</p><h3 id="worlds-title">Novel-derived<br>interactive worlds</h3><p>I design and build prototypes that turn literary texts into interactive experiences. My current architecture combines a computational game master, specialized agents, and separate GM-facing and player-facing scripts.</p><p class="contribution"><strong>My contribution</strong>System architecture, prototype development, interaction design, and analysis of saved interactions.</p><button class="text-link" type="button" data-dialog="worlds">Read the overview <span aria-hidden="true">↗</span></button></div>
+      </article>
+      <div class="research-bottom">
+        <article class="earlier"><img src="assets/novelverse.png" width="1600" height="1000" alt="The earlier NovelVerse prototype, with a generated scene and reading interface." loading="lazy"><div><h3>Learning through making</h3><p>Building and testing successive prototypes helps me identify where the system’s interpretation of a reader’s action differs from what the reader intended.</p></div></article>
+        <aside class="question"><p>What I want to understand next</p><h3>When we make a choice,<br>what should change?</h3><p>Player intent, world rules, and the consequences that carry into the next interaction.</p><div class="repository-links"><a href="https://github.com/LanZ430/DC-HMAS-Demo" target="_blank" rel="noopener noreferrer">DC-HMAS on GitHub <span aria-hidden="true">↗</span></a><span class="repository-note">Repository currently private</span><a href="https://github.com/LanZ430/NovelVerse" target="_blank" rel="noopener noreferrer">NovelVerse on GitHub <span aria-hidden="true">↗</span></a></div></aside>
+      </div>
+      <div class="supporting-projects">
+        <article class="supporting-project mint-project" aria-labelledby="contricare-title"><h3 id="contricare-title">ContriCare</h3><p class="project-subtitle">Community-based mutual aid for rural eldercare</p><p>I co-designed the platform, conducted field studies and semi-structured interviews, and led prototype development and qualitative analysis.</p><p class="project-methods">Field research · Interaction design</p></article>
+        <article class="supporting-project blue-project" aria-labelledby="thermikit-title"><h3 id="thermikit-title">ThermiKit</h3><p class="project-subtitle">Thermal analytics with natural-language interaction</p><p>I led development of an edge-deployable framework with agent-driven interaction over sensor data, as part of my work on sensing and interaction for eldercare.</p><p class="project-methods">System building · Edge AI</p></article>
+      </div>
+      <details class="additional-projects"><summary>More interaction &amp; game projects <span class="disclosure-symbol" aria-hidden="true">+</span></summary><div class="additional-grid"><article><h3>Accessible appliance interaction</h3><p class="item-meta">HCI course project · 2023</p><p>A tangible prototype that helps people with visual impairments identify appliance buttons through audio feedback, infrared sensing, and tactile cues. I led the interaction and hardware design and participated in user evaluation.</p></article><article><h3>A 3D exploration game</h3><p class="item-meta">Team project · 2022</p><p>A team-built Unreal Engine 4 game combining exploration, shooting, puzzles, and racing. I designed interactive scenes and implemented player interactions within a cyberpunk world.</p></article></div></details>
+    </section>
+    <section class="papers section" id="publications" aria-labelledby="papers-title">
+      <h2 id="papers-title">Papers &amp; writing</h2><p class="papers-lead">Selected papers, posters, and research manuscripts.</p>
+      <div class="paper-group" aria-labelledby="published-title">
+        <h3 class="paper-group-title" id="published-title">Publications</h3>
+        <ol class="publication-list published-list">
+          <li><time datetime="2026">2026</time><div><p class="publication-venue">CHI 2026 Extended Abstracts · Poster</p><h4>Beyond Transactions: Sustaining Rural Mutual Aid through Mediated Reciprocity</h4><p class="publication-authors">Guo, Y., <strong>Zeng, L.</strong>, He, L., et al.</p><a class="paper-link" href="https://doi.org/10.1145/3772363.3799061" target="_blank" rel="noopener noreferrer" aria-label="Beyond Transactions: publication via DOI (opens in a new tab)">Publication <span aria-hidden="true">↗</span></a></div></li>
+          <li><time datetime="2025">2025</time><div><p class="publication-venue">ACM HotSense 2025 · Workshop paper</p><h4>ThermiKit: Edge-Optimized LWIR Analytics with Agent-Driven Interactions</h4><p class="publication-authors"><strong>Zeng, L.</strong>, Huang, C., Xie, R., et al.</p><a class="paper-link" href="https://doi.org/10.1145/3737905.3769284" target="_blank" rel="noopener noreferrer" aria-label="ThermiKit: publication via DOI (opens in a new tab)">Publication <span aria-hidden="true">↗</span></a></div></li>
+          <li><time datetime="2023">2023</time><div><p class="publication-venue">IEEE ICETCI 2023 · Conference paper</p><h4>YOLOv5-LC: A Lightweight Classification Deep Learning Detector for Dining Plate</h4><p class="publication-authors">Jiang, H., Guan, Z., Zeng, C., <strong>Zeng, L.</strong>, Wang, T., Wang, H.</p><a class="paper-link" href="https://doi.org/10.1109/ICETCI57876.2023.10176439" target="_blank" rel="noopener noreferrer" aria-label="YOLOv5-LC: publication via DOI (opens in a new tab)">Publication <span aria-hidden="true">↗</span></a></div></li>
+        </ol>
+      </div>
+      <div class="paper-group manuscript-group" id="manuscripts" aria-labelledby="manuscripts-title">
+        <h3 class="paper-group-title" id="manuscripts-title">Manuscripts</h3>
+        <p class="manuscripts-note">Publicly available research manuscripts, not formally published.</p>
+        <ol class="publication-list manuscript-list">
+          <li><div><h4>SciPG: A New Benchmark and Approach for Layout-Aware Scientific Poster Generation</h4><p class="publication-authors">Yao, K., <strong>Zeng, L.</strong>, Qin, C., et al.</p><a class="paper-link" href="https://openreview.net/forum?id=zmHqlXGTTl" target="_blank" rel="noopener noreferrer" aria-label="SciPG on OpenReview (opens in a new tab)">OpenReview <span aria-hidden="true">↗</span></a></div></li>
+          <li><div><h4>What to Ask LLM: Knowledge-Aware Follow-Up Query Generation for Progressive Information Acquisition</h4><p class="publication-authors">Yao, K., <strong>Zeng, L.</strong>, Qin, C., et al.</p><a class="paper-link" href="https://openreview.net/pdf?id=eZTpFneONo" target="_blank" rel="noopener noreferrer" aria-label="What to Ask LLM: PDF on OpenReview (opens in a new tab)">PDF on OpenReview <span aria-hidden="true">↗</span></a></div></li>
+        </ol>
+      </div>
+    </section>
+    <section class="about section" id="background" aria-labelledby="about-title">
+      <div><h2 id="about-title">A builder,<br>with people in mind.</h2><p class="background-intro">My research connects system building with the experience of the person using it.</p><div class="cv-actions"><a class="text-link" href="assets/Lan_Zeng_Public_CV.pdf" download>Download CV (PDF) <span aria-hidden="true">↓</span></a><button type="button" class="text-link" data-dialog="background">CV &amp; background <span aria-hidden="true">↗</span></button></div></div>
+      <div class="about-content"><h3 class="subsection-title">Research experience</h3><ol class="experience-list"><li><p class="item-meta">Jun 2025-present</p><h4>The Chinese University of Hong Kong</h4><p class="experience-role">Research Assistant, AIoT Laboratory</p><p>Research on rural eldercare, accessible interaction, thermal sensing, and AI-assisted care systems.</p></li><li><p class="item-meta">Dec 2023-Apr 2025</p><h4>Institute of Software, Chinese Academy of Sciences</h4><p class="experience-role">Research Assistant</p><p>Research on language models, retrieval-enhanced question answering, progressive information acquisition, and multimodal document generation.</p></li></ol></div>
+      <div class="background-more">
+        <div>
+          <h3 class="subsection-title">Education</h3>
+          <ul class="education-list">
+            <li><p class="item-meta">2024-2025</p><h4>The Chinese University of Hong Kong</h4><p>M.S. in Information Engineering</p></li>
+            <li><p class="item-meta">2020-2024</p><h4>Beijing Jiaotong University</h4><p>B.Eng. in Computer Science and Technology</p></li>
+            <li><p class="item-meta">2020-2024</p><h4>Lancaster University</h4><p>BSc (Hons) in Computer Science</p><p>Upper Second-Class Honours (2:1)</p><p>Dual-degree programme with Beijing Jiaotong University, taught at Lancaster University College at BJTU in Weihai, China.</p></li>
+          </ul>
+        </div>
+        <div class="background-extras"><details open><summary>Selected recognition <span class="disclosure-symbol" aria-hidden="true">+</span></summary><ul class="recognition-list"><li><time datetime="2026">2026</time><span>Student Travel Grant, OECC</span></li><li><time datetime="2023">2023</time><span>Beijing Municipal Recognition, National College Students’ Innovation and Entrepreneurship Training Program</span></li><li><time datetime="2022">2022</time><span>Provincial First Prize, Contemporary Undergraduate Mathematical Contest in Modeling</span></li><li><time datetime="2022">2022</time><span>Honorable Mention, International Mathematical Contest in Modeling</span></li></ul></details><details><summary>Teaching &amp; mentoring <span class="disclosure-symbol" aria-hidden="true">+</span></summary><div class="teaching-list"><article><h4>Teaching Assistant, C Language</h4><p class="item-meta">Beijing Jiaotong University · 2021-2022</p><p>Supported programming instruction through assignment feedback, teaching slides, and practice problems.</p></article><article><h4>Calculus Lecturer</h4><p class="item-meta">Student Academic Support Centre, BJTU · 2020-2021</p><p>Led review workshops and prepared learning materials for first-year undergraduates.</p></article></div></details></div>
+      </div>
+    </section>
+    <section class="personal section" id="about" aria-labelledby="personal-title"><h2 id="personal-title">Why these worlds?</h2><p>I came to computing through a love of novels and history. I wanted to step into those worlds and understand what it might feel like to live within them: to make choices, encounter their limits, and see how a larger social or historical world shapes an individual life.</p><p>That curiosity continues to guide my work on interactive narrative.</p></section>
+    <section class="contact section" id="contact"><p>Interactive narrative. Human-AI interaction. Creative systems.</p><h2>Let’s explore<br>what’s possible.</h2><a href="mailto:lanzeng430@gmail.com">lanzeng430@gmail.com <span aria-hidden="true">↗</span></a><div class="contact-links"><a href="https://github.com/LanZ430" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a><a href="assets/Lan_Zeng_Public_CV.pdf" download>Download CV (PDF) <span aria-hidden="true">↓</span></a></div></section>
+  </main>
+  <footer class="footer"><span>© 2026 Lan Zeng</span><a href="#home">Back to top ↑</a></footer>
+  <dialog id="detail" aria-labelledby="detail-title"><button type="button" class="close">Close <span aria-hidden="true">×</span></button><div id="detail-content"></div></dialog>
+  <template id="detail-worlds">
+    <h2 id="detail-title">Novel-derived interactive worlds</h2><p>I design and build prototypes that turn literary texts into interactive experiences. The aim is to let readers explore through their own choices while remaining engaged with the world an author created.</p>
+    <h3>From NovelVerse to DC-HMAS</h3><p>NovelVerse explored first-person, multimodal interaction with fictional worlds. The current DC-HMAS prototype organizes free-text interaction through a computational game master, specialized agents, and separate GM-facing and player-facing scripts.</p>
+    <h3>What I contribute</h3><p>System architecture, prototype development, interaction design, and analysis of saved interactions. Building and testing successive versions helps me identify where the system’s interpretation of a reader’s action differs from what the reader intended.</p>
+    <h3>What I want to study next</h3><p>How should an interactive world respond to a reader’s intended action while respecting its own rules and ongoing development? The handling of action consequences remains a question for further development and evaluation.</p>
+    <div class="repository-links"><a href="https://github.com/LanZ430/DC-HMAS-Demo" target="_blank" rel="noopener noreferrer">DC-HMAS on GitHub <span aria-hidden="true">↗</span></a><span class="repository-note">Repository currently private</span><a href="https://github.com/LanZ430/NovelVerse" target="_blank" rel="noopener noreferrer">NovelVerse on GitHub <span aria-hidden="true">↗</span></a></div>
+    <p class="note">Private repositories are not accessible without permission. Manuscripts under review are not shared here.</p>
+  </template>
+  <template id="detail-background">
+    <h2 id="detail-title">CV &amp; background</h2><p>My work connects interactive narrative and human-AI interaction with experience in system building, field research, multimodal generation, and evaluation.</p>
+    <h3>Research experience</h3><p><strong>Research Assistant, AIoT Laboratory, CUHK</strong><br>Jun 2025-present<br>Rural eldercare, accessible interaction, thermal analytics, and AI-assisted care systems.</p><p><strong>Research Assistant, Institute of Software, Chinese Academy of Sciences</strong><br>Dec 2023-Apr 2025<br>Language models, retrieval-enhanced question answering, progressive information acquisition, and multimodal document generation.</p>
+    <h3>Education</h3><ul><li>M.S. in Information Engineering, The Chinese University of Hong Kong, 2024-2025.</li><li>B.Eng. in Computer Science and Technology, Beijing Jiaotong University, 2020-2024.</li><li>BSc (Hons) in Computer Science, Lancaster University, 2020-2024. Upper Second-Class Honours (2:1).</li></ul>
+    <p>The two undergraduate degrees were awarded through the dual-degree programme at Lancaster University College at BJTU in Weihai, China.</p>
+    <h3>Beyond research</h3><p>I have supported C programming instruction and taught calculus review sessions at Beijing Jiaotong University. My earlier projects include accessible appliance interaction and an Unreal Engine exploration game.</p>
+    <p class="note"><a href="assets/Lan_Zeng_Public_CV.pdf" download>Download CV (PDF)</a></p>
+  </template>
+  <noscript><style>.atlas-opening{height:100svh;min-height:740px}.atlas-pinned{position:relative}.atlas-controls,.ambient-layer,.copy-fragments,.copy-gather,.copy-world{display:none}</style><p class="no-script">The artwork needs JavaScript. Research, projects, papers, background and contact are available below.</p></noscript>
+</body>
+</html>
